@@ -8,6 +8,7 @@ public class DeckTester {
 	 *	@param args is not used.
 	 */
 	public static void main(String[] args) {
+		Deck deck = new Deck({"2","3","4"},{"hearts","spades"},{2,3,4})
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 	}
 }
