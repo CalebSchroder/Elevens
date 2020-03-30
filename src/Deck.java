@@ -1,3 +1,4 @@
+import java.util.*;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -62,6 +63,14 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
+		Random rand = new Random();
+		int r = 0;
+		for (int k = cards.size() - 1; k > 0; k--) {
+			r = rand.nextInt(k);
+			Card tempCard = cards.get(k);
+			cards.set(k, cards.get(r));
+			cards.set(r, tempCard);
+        }
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
 	}
 
