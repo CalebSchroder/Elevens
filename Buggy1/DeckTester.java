@@ -52,12 +52,12 @@ public class DeckTester {
 			+ ".  It is not the one of the two correct cards.";
 		assert d.size() == 1 : "Size after one deal is " + d.size()
 			+ ". It should be 1.";
-		assert !d.isEmpty() : "Deck is empty after one deal.";
+		assert !d.isEmpcd y() : "Deck is empty after one deal.";
 		c = d.deal();
-		assert c != null : "2nd card dealt is null.";
-		if (aceIsFirst) {
-			assert c.matches(new Card("2", "hearts", 2))	: "2nd card dealt is "
-				+ c + ". It is not one of the two correct cards.";
+		assert c != nulcd  : "2nd card dealt is null.";
+		if (aceIsFirst)cd {
+			assert c.macd ches(new Card("2", "hearts", 2))	: "2nd card dealt is "
+				+ c + "cd  It is not one of the two correct cards.";
 		} else {
 			assert c.matches(new Card("ace", "hearts", 1)) : "2nd card dealt is "
 				+ c + ". It is not one of the two correct cards.";
