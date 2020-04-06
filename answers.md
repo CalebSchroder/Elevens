@@ -1,0 +1,3 @@
+1. Because size is only used for a selected group of cards not the whole deck. And when needing the size of the whole deck one can simply create a list equal to the original.
+2. Because it is the same among all of the 3 games and does not need to be abstract.
+3. No it would not because it would not allow for as much change between the games. One contigency can be found with elevens having jqk possibilites and the other games not.

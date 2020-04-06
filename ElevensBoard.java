@@ -53,6 +53,13 @@ public class ElevensBoard extends Board {
 	 */
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
+		if (containsPairSum11(selectedCards) && selectedCards.size() == 2) {
+			return true;
+		}
+		if (containsJQK(selectedCards) && selectedCards.size() == 3) {
+			return true;
+		}
+		return false;
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 	}
 
@@ -66,6 +73,12 @@ public class ElevensBoard extends Board {
 	 */
 	@Override
 	public boolean anotherPlayIsPossible() {
+		List<Integer> indexes = cardIndexes();
+		if(containsPairSum11(indexes) || containsJQK(indexes)) {
+			return true;
+		}
+		return false;
+
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 	}
 
@@ -78,6 +91,16 @@ public class ElevensBoard extends Board {
 	 *              contain an 11-pair; false otherwise.
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
+		if(selectedCards.size() >= 2) {
+			for(int i = 0; i < selectedCards.size() - 1; i ++) {
+				for (int j = i + 1; j < selectedCards.size(); j++) {
+					if (cardAt(selectedCards.get(i)).pointValue() + cardAt(selectedCards.get(j)).pointValue() == 11) {
+						return true;
+					}
+				} 
+			}
+		}
+		return false;
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 	}
 
@@ -90,6 +113,27 @@ public class ElevensBoard extends Board {
 	 *              include a jack, a queen, and a king; false otherwise.
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
+		boolean hasJack = false;
+		boolean hasQueen = false;
+		boolean hasKing = false;
+		if(selectedCards.size() >= 3) {
+			for (int i = 0; i < selectedCards.size(); i ++) {
+				if (cardAt(selectedCards.get(i)).rank().equals("jack")) {
+					hasJack = true;
+				}
+				if (cardAt(selectedCards.get(i)).rank().equals("queen")) {
+					hasQueen = true;
+				}
+				if (cardAt(selectedCards.get(i)).rank().equals("king")) {
+					hasKing = true;
+				}
+			}
+		}
+		if (hasKing && hasQueen && hasJack) {
+			return true;
+		}
+		return false;
+
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 	}
 }
